@@ -1,0 +1,505 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "is,name,what,your": {
+            "intent": "personal.name",
+            "domain": "default"
+          },
+          "are,how,old,you": {
+            "intent": "personal.age",
+            "domain": "default"
+          },
+          "are,interest,what,your": {
+            "intent": "personal.interests",
+            "domain": "default"
+          },
+          "about,me,tell,yourself": {
+            "intent": "personal.details",
+            "domain": "default"
+          },
+          "are,hello,how,you": {
+            "intent": "general.greeting",
+            "domain": "default"
+          },
+          "are,do,hi,how,you": {
+            "intent": "general.greeting",
+            "domain": "default"
+          },
+          "can,do,what,you": {
+            "intent": "general.capabilities",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "personal.name": "default",
+          "personal.age": "default",
+          "personal.interests": "default",
+          "personal.details": "default",
+          "general.greeting": "default",
+          "general.capabilities": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "What is your name?",
+            "intent": "personal.name"
+          },
+          {
+            "domain": "default",
+            "utterance": "How old are you?",
+            "intent": "personal.age"
+          },
+          {
+            "domain": "default",
+            "utterance": "What are your interests?",
+            "intent": "personal.interests"
+          },
+          {
+            "domain": "default",
+            "utterance": "Tell me about yourself",
+            "intent": "personal.details"
+          },
+          {
+            "domain": "default",
+            "utterance": "Hello, how are you?",
+            "intent": "general.greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "Hi, how are you doing?",
+            "intent": "general.greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "What can you do?",
+            "intent": "general.capabilities"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "what": 1,
+              "is": 1,
+              "your": 1,
+              "name": 1,
+              "how": 1,
+              "old": 1,
+              "are": 1,
+              "you": 1,
+              "interest": 1,
+              "tell": 1,
+              "me": 1,
+              "about": 1,
+              "yourself": 1,
+              "hello": 1,
+              "hi": 1,
+              "do": 1,
+              "can": 1
+            },
+            "intents": {
+              "personal.name": 1,
+              "personal.age": 1,
+              "personal.interests": 1,
+              "personal.details": 1,
+              "general.greeting": 1,
+              "general.capabilities": 1
+            },
+            "intentFeatures": {
+              "personal.name": {
+                "what": 1,
+                "is": 1,
+                "your": 1,
+                "name": 1
+              },
+              "personal.age": {
+                "how": 1,
+                "old": 1,
+                "are": 1,
+                "you": 1
+              },
+              "personal.interests": {
+                "what": 1,
+                "are": 1,
+                "your": 1,
+                "interest": 1
+              },
+              "personal.details": {
+                "tell": 1,
+                "me": 1,
+                "about": 1,
+                "yourself": 1
+              },
+              "general.greeting": {
+                "hello": 1,
+                "how": 1,
+                "are": 1,
+                "you": 1,
+                "hi": 1,
+                "do": 1
+              },
+              "general.capabilities": {
+                "what": 1,
+                "can": 1,
+                "you": 1,
+                "do": 1
+              }
+            },
+            "featuresToIntent": {
+              "what": [
+                "personal.name",
+                "personal.interests",
+                "general.capabilities"
+              ],
+              "is": [
+                "personal.name"
+              ],
+              "your": [
+                "personal.name",
+                "personal.interests"
+              ],
+              "name": [
+                "personal.name"
+              ],
+              "how": [
+                "personal.age",
+                "general.greeting"
+              ],
+              "old": [
+                "personal.age"
+              ],
+              "are": [
+                "personal.age",
+                "personal.interests",
+                "general.greeting"
+              ],
+              "you": [
+                "personal.age",
+                "general.greeting",
+                "general.capabilities"
+              ],
+              "interest": [
+                "personal.interests"
+              ],
+              "tell": [
+                "personal.details"
+              ],
+              "me": [
+                "personal.details"
+              ],
+              "about": [
+                "personal.details"
+              ],
+              "yourself": [
+                "personal.details"
+              ],
+              "hello": [
+                "general.greeting"
+              ],
+              "hi": [
+                "general.greeting"
+              ],
+              "do": [
+                "general.greeting",
+                "general.capabilities"
+              ],
+              "can": [
+                "general.capabilities"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "what",
+                "is",
+                "your",
+                "name",
+                "how",
+                "old",
+                "are",
+                "you",
+                "interest",
+                "tell",
+                "me",
+                "about",
+                "yourself",
+                "hello",
+                "hi",
+                "do",
+                "can"
+              ],
+              "intents": [
+                "personal.name",
+                "personal.age",
+                "personal.interests",
+                "personal.details",
+                "general.greeting",
+                "general.capabilities"
+              ],
+              "perceptrons": [
+                [
+                  1.6786792278289795,
+                  4.750723838806152,
+                  2.426302194595337,
+                  4.750723838806152,
+                  -0.1179179921746254,
+                  -0.07436960935592651,
+                  -2.4584975242614746,
+                  -0.8712000846862793,
+                  -2.324462890625,
+                  -0.17380671203136444,
+                  -0.17380671203136444,
+                  -0.17380671203136444,
+                  -0.17380671203136444,
+                  -0.013790112920105457,
+                  -0.008014432154595852,
+                  -0.752409815788269,
+                  -0.7369648218154907,
+                  0.6785409412367042
+                ],
+                [
+                  -0.6777411699295044,
+                  -0.003619855735450983,
+                  -0.532331645488739,
+                  -0.003619855735450983,
+                  1.746195912361145,
+                  8.965853691101074,
+                  1.2154357433319092,
+                  1.6011338233947754,
+                  -0.5253302454948425,
+                  -0.13391783833503723,
+                  -0.13391783833503723,
+                  -0.13391783833503723,
+                  -0.13391783833503723,
+                  -4.79105281829834,
+                  -2.4341964721679688,
+                  -2.579258918762207,
+                  -0.11578463017940521,
+                  0.45491773290485815
+                ],
+                [
+                  2.2755980491638184,
+                  -2.613929510116577,
+                  2.671037197113037,
+                  -2.613929510116577,
+                  -1.530880093574524,
+                  -0.5832298398017883,
+                  3.7545650005340576,
+                  -1.9263195991516113,
+                  5.285243511199951,
+                  -0.1492874175310135,
+                  -0.1492874175310135,
+                  -0.1492874175310135,
+                  -0.1492874175310135,
+                  -0.6365671157836914,
+                  -0.28462836146354675,
+                  -0.6907206773757935,
+                  -0.3761093318462372,
+                  0.290230091432973
+                ],
+                [
+                  -0.5029727220535278,
+                  -0.23751962184906006,
+                  -0.3431282937526703,
+                  -0.23751962184906006,
+                  -0.3266521394252777,
+                  -0.0788113996386528,
+                  -0.4301983416080475,
+                  -0.486165851354599,
+                  -0.09130801260471344,
+                  3.267686367034912,
+                  3.267686367034912,
+                  3.267686367034912,
+                  3.267686367034912,
+                  -0.14110000431537628,
+                  -0.07037155330181122,
+                  -0.2384437620639801,
+                  -0.14742614328861237,
+                  1.2149561385482242
+                ],
+                [
+                  -2.368915557861328,
+                  -0.04894992709159851,
+                  -0.5413969159126282,
+                  -0.04894992709159851,
+                  3.2024824619293213,
+                  -7.360668659210205,
+                  2.704887628555298,
+                  1.4112261533737183,
+                  -0.46348801255226135,
+                  -0.09466666728258133,
+                  -0.09466666728258133,
+                  -0.09466666728258133,
+                  -0.09466666728258133,
+                  6.379689693450928,
+                  4.189558982849121,
+                  2.3986194133758545,
+                  -1.7933896780014038,
+                  0.3617024712612974
+                ],
+                [
+                  3.2508766651153564,
+                  -1.1103626489639282,
+                  -1.5103850364685059,
+                  -1.1103626489639282,
+                  -2.142085313796997,
+                  -0.26251035928726196,
+                  -2.542106866836548,
+                  2.6191506385803223,
+                  -0.3737425208091736,
+                  -0.13606616854667664,
+                  -0.13606616854667664,
+                  -0.13606616854667664,
+                  -0.13606616854667664,
+                  -0.2105703204870224,
+                  -1.5881272554397583,
+                  3.1731088161468506,
+                  4.761236190795898,
+                  0.4805976659439084
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "What is your name?"
+      ],
+      [
+        "en",
+        "How old are you?"
+      ],
+      [
+        "en",
+        "What are your interests?"
+      ],
+      [
+        "en",
+        "Tell me about yourself"
+      ],
+      [
+        "en",
+        "Hello, how are you?"
+      ],
+      [
+        "en",
+        "Hi, how are you doing?"
+      ],
+      [
+        "en",
+        "What can you do?"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "general.greeting": [
+          {
+            "answer": "Hello! thank you!"
+          }
+        ],
+        "general.capabilities": [
+          {
+            "answer": "I can answer questions about me and general information."
+          }
+        ],
+        "personal.name": [
+          {
+            "answer": "My name is محمد یوسفی بهتاش."
+          }
+        ],
+        "personal.age": [
+          {
+            "answer": "I am 26 years old."
+          }
+        ],
+        "personal.interests": [
+          {
+            "answer": "I am interested in برنامه‌نویسی, کوه نوردی, مطالعه, سفر."
+          }
+        ],
+        "personal.details": [
+          {
+            "answer": "محمد یوسفی، 26 ساله، در شهر تبریز متولد شده و بزرگ شده‌ام. من دارای مدرک لیسانس در رشته نرم‌افزار هستم و در حال حاضر به عنوان فرانت‌اند کار مشغول به کار هستم. بیشترین علاقه من در زمینه برنامه‌نویسی است، به ویژه به فریمورک Angular. علاوه بر برنامه‌نویسی، کوهنوردی نیز از علاقه‌مندی‌ها و سرگرمی‌های من است."
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
