@@ -1,0 +1,23 @@
+<!-- <div>
+    <h1>ربات شخصی</h1>
+    <input [(ngModel)]="userInput" placeholder="سوال خود را بپرسید" />
+    <button (click)="sendQuery()">ارسال</button>
+    @if (butRespunse) {
+        <p>پاسخ :{{butRespunse}}</p>
+    }
+  </div> -->
+  <div class="chat-container">
+    <div class="messages" id="message-container">
+        @for (item of butRespunse; track $index) {
+            <div class="message " [ngClass]="{'me': item.sender === 'me', 'them': item.sender === 'bot'}">
+                {{ item.text }}
+            </div>
+        }
+       
+
+    </div>
+    <div class="input-container">
+      <input [(ngModel)]="userInput" type="text" (keypress)="($event.key === 'Enter' ? sendQuery() : null)" id="message-input" placeholder="Type a message...">
+      <button (click)="sendQuery()" id="send-button">Send</button>
+    </div>
+  </div>
